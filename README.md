@@ -50,7 +50,7 @@ New Paginator
 ```
 # customized paginator
 new Paginator
-	pageComponent: bottom
+	pageComponent: myPageComponent
 	side: "bottom"
 	sideOffset: 12      # distance from edge
         dotSize: 28         # size of dot
