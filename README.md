@@ -21,7 +21,7 @@ New Paginator
   pageComponent: myPageComponent
   side: "bottom"
 ```
-By default, the paginator instance will be centered horizontally on the specified side of the page component, with 10 pixels between the bottom of the page component and the specified side of the paginator. Paginators added to the left or right of the the page component will be oriented vertically, with the dots in a vertical stack rather than in a horizontal row.
+By default, the paginator instance will be centered horizontally on the specified side of the page component, with 10 pixels between the chosen side of the page component and the the paginator. Paginators that are added to the left or right of the the page component will be oriented verticall: the dots are situated in a vertical stack rather than in a horizontal row. 
 
 ### Other examples:
 ```
