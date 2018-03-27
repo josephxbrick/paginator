@@ -47,6 +47,30 @@ New Paginator
   pageComponent: myPageComponent
   side: "right"
 ```
+```
+# customized paginator
+new Paginator
+	pageComponent: bottom
+	side: "bottom"
+	sideOffset: 12      #distance from edge
+  dotSize: 28         #size of dot
+	dotSpacing: 18      # spacing between dots
+	interactive: true   # tap dots to navigate page component
+	animOptions:        # animation optinos
+		time: 0.25
+		curve: Bezier.easeInOut
+	dotDefaultProps:    # use dotDefaultProps to define the dot's normal appearance
+		borderRadius: 5
+		borderWidth: 2
+		backgroundColor: "rgb(0, 230, 54, 0.67)" #greenish
+		borderColor: "rgba(255,255,255,0.9)"
+	dotSelectedProps:   # use dotSelectedProps to define what's different about the selected appearance	
+		backgroundColor: "rgba(250, 5, 234, 0.67)" #pinkish
+  ```
+  The example above will look like this:
+  
+  ![Custom Image](/readme_images/custom_example.png?raw=true "Custom Image")
+  
 
 
 
