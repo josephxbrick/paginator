@@ -66,10 +66,26 @@ new Paginator
 		borderColor: "rgba(255,255,255,0.9)"
 	dotSelectedProps:   # use dotSelectedProps to define what's different about the selected appearance	
 		backgroundColor: "rgba(250, 5, 234, 0.67)" #pinkish
-  ```
-  The example above will look like this:
+```
+The example above will look like this:
+
+![Custom Image](/readme_images/custom_example.png?raw=true "Custom Image")
   
-  ![Custom Image](/readme_images/custom_example.png?raw=true "Custom Image")
+### Default values
+Following are the default property values for the Paginator class
+```
+New Paginator
+	pageComponent: undefined  # this is a required property
+	side: "bottom"
+	sideOffset: 10
+	dotSize: 13
+	dotSpacing: 6
+	dotDefaultProps: backgroundColor: "rgba(0, 0, 0, 0.15)", borderColor: "rgba(255,255,255,0.95)"
+	dotSelectedProps: backgroundColor: "rgba(255,255,255,0.95)", borderColor: "rgba(0,0,0,0.35)"
+	animOptions: time: 0.3, curve: Bezier.ease
+	backgroundColor: ""
+	interactive: false
+```
   
-  ### Framer sample
-  [This sample](https://framer.cloud/cNoet) contains a few examples of using Paginator.
+### Framer sample
+[This sample](https://framer.cloud/cNoet) contains a few examples of using Paginator.
