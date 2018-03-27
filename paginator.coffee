@@ -14,6 +14,7 @@ class exports.Paginator extends Layer
 			pageComponent: undefined
 			side: "bottom"
 			sideOffset: 10
+			dotSize: 13
 			dotSpacing: 6
 			dotDefaultProps: backgroundColor: "rgba(0, 0, 0, 0.15)", borderColor: "rgba(255,255,255,0.95)"
 			dotSelectedProps: backgroundColor: "rgba(255,255,255,0.95)", borderColor: "rgba(0,0,0,0.35)"
@@ -57,6 +58,7 @@ class exports.Paginator extends Layer
 				dot = new DefaultDot
 				dot.props = @o.dotDefaultProps
 			if i < numDots
+				dot.size = @o.dotSize
 				dot.parent = @
 				if @orientation is "h"
 					dot.x = i * (dot.width + @o.dotSpacing)
