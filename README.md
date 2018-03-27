@@ -1,5 +1,7 @@
 # paginator
-A Framer component that adds a pagination control (those little dots that show which page you are on) to the specified PageComponent.
+A Framer component that adds a pagination control to the specified PageComponent. A paginator is that set of dots that show you which page you are on - common in app onboarding experiences.
+
+![Paginator Image](/readme_images/paginator_example.png?raw=true "Paginator Image")
 
 ### Overview
 
