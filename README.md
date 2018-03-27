@@ -5,7 +5,7 @@ A Framer component that adds a pagination control to the specified PageComponent
 
 ### Overview
 
-Paginator has a default style its display of the pagination dots, though you can customize the appearance. Once assigned to a page component, the paginator instance automatically selects its proper dot on page navigation, and it handles adding/removing dots to/from itself when pages are added or removed from the page component.
+Paginator has a default style for its display of the pagination dots, which is designed to be visible on a wide variety of backgrounds, though you can customize the appearance. Once assigned to a page component, the paginator instance automatically selects its proper dot on page navigation, and it handles adding/removing dots to/from itself when pages are added or removed from the page component.
 
 You can also make the dots interactive. Once interactive, a dot when tapped in the paginator instance will navigate the page component to its corresponding page.
 
