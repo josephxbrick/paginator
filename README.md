@@ -23,11 +23,14 @@ New Paginator
 ```
 By default, the paginator instance will be centered horizontally relative to the page component, with 10 pixels between the bottom of the page component and the bottom of the paginator.
 
-##### Other sides:
+##### Other examples:
 ```
-# Centers paginator at the top of the page component.
+# Centers paginator at the top of the page component. The dots are 18 pixels in size
+# and 10 pixels apart.
 New Paginator
   pageComponent: myPageComponent
+  dotSize: 18
+  dotSpacing: 10
   side: "top" 
 ```
 ```
