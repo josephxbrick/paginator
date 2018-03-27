@@ -15,7 +15,7 @@ To add this module to your Framer project, copy the `paginator.coffee` file to t
 
 `{Paginator} = require "paginator"`
 
-To add a paginator to the bottom a page component named myPageComponent:
+To add a paginator to the bottom a page component named `myPageComponent`:
 ```
 New Paginator
   pageComponent: myPageComponent
