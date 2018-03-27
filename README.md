@@ -70,3 +70,6 @@ new Paginator
   The example above will look like this:
   
   ![Custom Image](/readme_images/custom_example.png?raw=true "Custom Image")
+  
+  ### Framer sample
+  [This sample](https://framer.cloud/cNoet) contains a few examples of using Paginator.
