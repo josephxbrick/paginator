@@ -15,13 +15,13 @@ To add this module to your Framer project, copy the `paginator.coffee` file to t
 
 `{Paginator} = require "paginator"`
 
-To add a paginator to the bottom a page component named `myPageComponent`:
+To add a paginator to the bottom of a page component named `myPageComponent`:
 ```
 New Paginator
   pageComponent: myPageComponent
   side: "bottom"
 ```
-By default, the paginator instance will be centered horizontally on the specified side of the page component, with 10 pixels between the chosen side of the page component and the the paginator. Paginators that are added to the left or right of the the page component will be oriented verticall: the dots are situated in a vertical stack rather than in a horizontal row. 
+By default, the paginator instance will be centered horizontally on the specified side of the page component, with 10 pixels between the chosen side of the page component and the the paginator. Paginators that are added to the left or right of the the page component will be oriented vertically: the dots are situated in a vertical stack rather than in a horizontal row. 
 
 ### Other examples:
 ```
