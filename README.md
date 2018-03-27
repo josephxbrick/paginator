@@ -1,11 +1,11 @@
 # paginator
-A Framer component that adds a pagination control to the specified PageComponent. A paginator is that set of dots that show you which page you are on - common in app onboarding experiences.
+A Framer component that adds a pagination control to the specified PageComponent. A pagination control is that set of dots that show you which page you are on - common in app onboarding experiences.
 
 ![Paginator Image](/readme_images/paginator_example.png?raw=true "Paginator Image")
 
 ### Overview
 
-Paginator has a default style for its display of the pagination dots, which is designed to be visible on a wide variety of backgrounds, though you can customize the appearance. Once assigned to a page component, the paginator instance automatically selects its proper dot on page navigation, and it handles adding/removing dots to/from itself when pages are added or removed from the page component.
+Paginator has a default style for its display, which is designed to be visible on a wide variety of backgrounds, though you can customize the appearance. Once assigned to a page component, the paginator instance automatically selects its proper dot on page navigation, and it handles adding/removing dots when pages are added or removed from the page component.
 
 You can also make the dots interactive. Once interactive, a dot when tapped in the paginator instance will navigate the page component to its corresponding page.
 
@@ -23,7 +23,7 @@ New Paginator
 ```
 By default, the paginator instance will be centered horizontally relative to the page component, with 10 pixels between the bottom of the page component and the bottom of the paginator.
 
-##### Other examples:
+### Other examples:
 ```
 # Centers paginator at the top of the page component. The dots are 18 pixels in size
 # and 10 pixels apart.
