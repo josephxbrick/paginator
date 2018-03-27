@@ -21,7 +21,7 @@ New Paginator
   pageComponent: myPageComponent
   side: "bottom"
 ```
-By default, the paginator instance will be centered horizontally relative to the page component, with 10 pixels between the bottom of the page component and the bottom of the paginator.
+By default, the paginator instance will be centered horizontally on the specified side of the page component, with 10 pixels between the bottom of the page component and the specified side of the paginator. Paginators added to the left or right of the the page component will be oriented vertically, with the dots in a vertical stack rather than in a horizontal row.
 
 ### Other examples:
 ```
@@ -29,8 +29,8 @@ By default, the paginator instance will be centered horizontally relative to the
 # and 10 pixels apart.
 New Paginator
   pageComponent: myPageComponent
-  dotSize: 18
-  dotSpacing: 10
+  dotSize: 18      # size of the dot
+  dotSpacing: 10   # spacing between dots
   side: "top" 
 ```
 ```
@@ -70,8 +70,3 @@ new Paginator
   The example above will look like this:
   
   ![Custom Image](/readme_images/custom_example.png?raw=true "Custom Image")
-  
-
-
-
-
