@@ -53,7 +53,7 @@ new Paginator
 	pageComponent: bottom
 	side: "bottom"
 	sideOffset: 12      #distance from edge
-  dotSize: 28         #size of dot
+        dotSize: 28         #size of dot
 	dotSpacing: 18      # spacing between dots
 	interactive: true   # tap dots to navigate page component
 	animOptions:        # animation optinos
