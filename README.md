@@ -52,11 +52,11 @@ New Paginator
 new Paginator
 	pageComponent: bottom
 	side: "bottom"
-	sideOffset: 12      #distance from edge
-        dotSize: 28         #size of dot
+	sideOffset: 12      # distance from edge
+        dotSize: 28         # size of dot
 	dotSpacing: 18      # spacing between dots
 	interactive: true   # tap dots to navigate page component
-	animOptions:        # animation optinos
+	animOptions:        # options for animation between dots
 		time: 0.25
 		curve: Bezier.easeInOut
 	dotDefaultProps:    # use dotDefaultProps to define the dot's normal appearance
