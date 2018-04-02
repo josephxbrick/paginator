@@ -3,17 +3,17 @@ Paginator is a Framer component that adds a pagination control to the specified 
 
 <img src="/readme_images/paginator_example.gif" width="500">
 
-### Overview
-
 Paginator has a default style for its display, which is designed to be visible on a wide variety of backgrounds, though you can customize the appearance. Once assigned to a page component, the paginator instance automatically selects the appropriate dot on page navigation, and it handles adding/removing dots when pages are added or removed from the page component.
 
 You can also make the dots interactive. Once interactive, a dot when tapped will navigate the page component to its corresponding page.
 
-### Usage
+## Getting Started
 
 To add this module to your Framer project, copy the `paginator.coffee` file to the `/modules` directory of your project and include the following line in your code:
 
 `{Paginator} = require "paginator"`
+
+## Creating a Paginator
 
 To add a paginator to the bottom of a page component named `myPageComponent`:
 ```
@@ -21,9 +21,11 @@ New Paginator
   pageComponent: myPageComponent
   side: "bottom"
 ```
-By default, the paginator instance will be centered horizontally on the specified side of the page component, with 10 pixels between the chosen side of the page component and the the paginator. Paginators that are added to the left or right of the the page component will be oriented vertically: the dots are situated in a vertical stack rather than in a horizontal row. 
+Other `side` options are "top", "left", and "right". 
 
-### Other examples:
+When "top" or "bottom" is the value for `side`, the dots will arrange themselves in a horizontal row, centered horizontally on the page component. When "left" or "right" is the value for `side`, the dots will arrange themselves in a vertical stack, centered vertically on the page component.
+
+## Code Examples:
 ```
 # Centers paginator at the top of the page component. The dots are 18 pixels in size
 # and 10 pixels apart.
