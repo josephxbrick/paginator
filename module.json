@@ -3,5 +3,5 @@
     "description": "Module that adds a pagination indicator to the specified page component.",
     "author": "Joseph Brick",
     "require": "{Paginator} = require 'paginator'",
-    "install": "paginator.coffee",
+    "install": "paginator.coffee"
 }
