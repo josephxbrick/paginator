@@ -1,18 +1,19 @@
-accordion = new Accordion
-	width: Screen.width - 20
-	x: Align.center
-	y: 10
-	singleExpand: true
+pc = new PageComponent
+	width: Screen.width - 40
+	height: Screen.height - 40
+	borderRadius: 15
+	point: Align.center
+	scrollVertical: false
 for i in [0...5]
 	layer = new Layer
-		width: accordion.width
-		height: 50
-		backgroundColor: Utils.randomColor()
-	button = new Layer #create expansion button (optional)
-		parent: layer
-		size: 30
-		x: 10
-		backgroundColor: "#222222"
-		blending: Blending.overlay
-		y: Align.center
-	accordion.addItem layer, 200, 50, button
+		size: pc.size
+		image: Utils.randomImage()
+		borderRadius: pc.borderRadius
+		x: i * (pc.width + 10)
+		parent: pc.content
+paginator = new Paginator
+	pageComponent: pc
+	side: "bottom"
+	dotSize: 14
+	dotSpacing: 6
+	sideOffset: 12
