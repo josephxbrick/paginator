@@ -1,7 +1,7 @@
 # Paginator
 Paginator is a Framer component that adds a pagination control to the specified PageComponent. A pagination control is that set of dots that show you which page you are on - common in app onboarding experiences.
 
-<img src="/readme_images/paginator_example.png" width="500">
+<img src="/readme_images/paginator_example.gif" width="500">
 
 ### Overview
 
