@@ -2,7 +2,7 @@
 	"name": "Paginator",
 	"description": "Module that adds a pagination indicator to the specified page component.",
 	"author": "Joseph Brick",
-	"example": "example.coffee"
+	"example": "example.coffee",
 	"require": "{Paginator} = require 'paginator'",
 	"install": "paginator.coffee"
 }
