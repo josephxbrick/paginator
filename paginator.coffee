@@ -38,6 +38,11 @@ class exports.Paginator extends Layer
 			me.selectDot @horizontalPageIndex(@currentPage)
 		@_pc.content.on "change:children", =>
 			@layout()
+		@_pc.on "change:size", =>
+			@setPosition()
+		@_pc.on "change:point", =>
+			@setPosition()
+
 		@layout()
 
 	createDots: ->
