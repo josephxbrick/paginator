@@ -7,6 +7,8 @@ Paginator has a default style for its display, which is designed to be visible o
 
 You can also make the dots interactive. Once interactive, a dot when tapped will navigate the page component to its corresponding page.
 
+[This sample](https://framer.cloud/cNoet) contains a few examples of using Paginator.
+
 ## Getting Started
 
 To add this module to your Framer project, copy the `paginator.coffee` file to the `/modules` directory of your project and include the following line in your code:
