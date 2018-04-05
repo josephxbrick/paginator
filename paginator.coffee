@@ -18,35 +18,33 @@ class exports.Paginator extends Layer
 			dotSpacing: 6
 			dotDefaultProps: backgroundColor: "rgba(0, 0, 0, 0.15)", borderColor: "rgba(255,255,255,0.95)"
 			dotSelectedProps: backgroundColor: "rgba(255,255,255,0.95)", borderColor: "rgba(0,0,0,0.35)"
-			animOptions: time: 0.3, curve: Bezier.ease
+			animationOptions: time: 0.3, curve: Bezier.ease
 			backgroundColor: ""
 			interactive: false
 		super @o
-		@_pc = @o.pageComponent
-		if not @_pc
+		if not @pageComponent
 			throw new Error "You must supply Paginator with a PageComponent"
 		# for positioning to work properly, Paginator must be on same layer as is PageComponent
-		@parent = @_pc.parent
-		if @o.side is "top" or @o.side is "bottom"
+		@parent = @pageComponent.parent
+		if @side is "top" or @side is "bottom"
 			@orientation = "h"
-		else if @o.side is "left" or @o.side is "right"
+		else if @side is "left" or @side is "right"
 			@orientation = "v"
 		else throw new Error "What side are you on?"
 
-		me = @
-		@_pc.on "change:currentPage", ->
-			me._selectDot @horizontalPageIndex(@currentPage)
-		@_pc.content.on "change:children", =>
+		@pageComponent.on "change:currentPage", (currentPage, target) =>
+			@_selectDot target.horizontalPageIndex(currentPage)
+		@pageComponent.content.on "change:children", =>
 			@_layout()
-		@_pc.on "change:size", =>
+		@pageComponent.on "change:size", =>
 			@_setPosition()
-		@_pc.on "change:point", =>
+		@pageComponent.on "change:point", =>
 			@_setPosition()
 
 		@_layout()
 
 	_createDots: ->
-		numDots = @_pc.content.children.length
+		numDots = @pageComponent.content.children.length
 		for i in [0...Math.max(numDots, @children.length)]
 			if i >= numDots
 				# Too many dots from prevous execution of _createDots().
@@ -56,59 +54,78 @@ class exports.Paginator extends Layer
 				destroyMe.destroy()
 			if i < @children.length and i < numDots
 				# Reuse existing dot from previous execution _createDots()
-				# due to @_pc event "change:children"
+				# due to @pageComponent event "change:children"
 				dot = @children[i]
 			else if i < numDots
 				# make new dot
 				dot = new DefaultDot
-				dot.props = @o.dotDefaultProps
+				dot.props = @dotDefaultProps
 			if i < numDots
-				dot.size = @o.dotSize
+				dot.size = @dotSize
 				dot.parent = @
 				if @orientation is "h"
-					dot.x = i * (dot.width + @o.dotSpacing)
+					dot.x = i * (dot.width + @dotSpacing)
 					dot.y = 0
 				else
 					dot.x = 0
-					dot.y = i * (dot.height + @o.dotSpacing)
+					dot.y = i * (dot.height + @dotSpacing)
 				dot.states =
-					default: @o.dotDefaultProps
-					selected: @o.dotSelectedProps
-				if @o.interactive is true
+					default: @dotDefaultProps
+					selected: @dotSelectedProps
+				if @interactive is true
 					dot.onTap (event, target) =>
-						@_pc.snapToPage @_pc.content.children[_.indexOf(@children, target)]
+						@pageComponent.snapToPage @pageComponent.content.children[_.indexOf(@children, target)]
 						@emit "dotTapped", target, _.indexOf(@children, target)
 		if @orientation is "h"
-			@width = numDots * (dot.width + @o.dotSpacing) - @o.dotSpacing
+			@width = numDots * (dot.width + @dotSpacing) - @dotSpacing
 			@height = dot.height
 		else
 			@width = dot.width
-			@height = numDots * (dot.height + @o.dotSpacing) - @o.dotSpacing
+			@height = numDots * (dot.height + @dotSpacing) - @dotSpacing
 
 	_selectDot: (dotIndex) ->
 		for child, i in @children
 			if i is dotIndex
 				child.animate "selected",
-					@o.animOptions
+					@animationOptions
 			else
 				child.animate "default",
-					@o.animOptions
+					@animationOptions
 
 	_setPosition: ->
-		if @o.side is "bottom"
-			@x = @_pc.x + @_pc.width/2 - @.width/2
-			@y = @_pc.maxY - @height - @o.sideOffset
-		else if @o.side is "top"
-			@x = @_pc.x + @_pc.width/2 - @.width/2
-			@y = @_pc.y + @o.sideOffset
-		else if @o.side is "left"
-			@x = @_pc.x + @o.sideOffset
-			@y = @_pc.y + @_pc.height/2 - @.height/2
-		else if @o.side is "right"
-			@x = @_pc.maxX - @width - @o.sideOffset
-			@y = @_pc.y + @_pc.height/2 - @.height/2
+		if @oside is "bottom"
+			@x = @pageComponent.x + @pageComponent.width/2 - @.width/2
+			@y = @pageComponent.maxY - @height - @sideOffset
+		else if @side is "top"
+			@x = @pageComponent.x + @pageComponent.width/2 - @.width/2
+			@y = @pageComponent.y + @sideOffset
+		else if @side is "left"
+			@x = @pageComponent.x + @sideOffset
+			@y = @pageComponent.y + @pageComponent.height/2 - @.height/2
+		else if @side is "right"
+			@x = @pageComponent.maxX - @width - @sideOffset
+			@y = @pageComponent.y + @pageComponent.height/2 - @.height/2
 
 	_layout: ->
 		@_createDots()
-		@_selectDot _.indexOf @_pc.content.children, @_pc.currentPage
+		@_selectDot _.indexOf @pageComponent.content.children, @pageComponent.currentPage
 		@_setPosition()
+
+	# To do: separate dot layout from dot creation
+	# so we can dynamically set dotSize, dotSpacing, etc.
+	@define "pageComponent",
+		get: -> @o.pageComponent
+	@define "side",
+		get: -> @o.side
+	@define "sideOffset",
+		get: -> @o.sideOffset
+	@define "dotSize",
+		get: -> @o.dotSize
+	@define "dotSpacing",
+		get: -> @o.dotSpacing
+	@define "dotDefaultProps",
+		get: -> @o.dotDefaultProps
+	@define "dotSelectedProps",
+		get: -> @o.dotSelectedProps
+	@define "interactive",
+		get: -> @o.interactive
