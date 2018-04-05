@@ -35,7 +35,7 @@ class exports.Paginator extends Layer
 
 		me = @
 		@_pc.on "change:currentPage", ->
-			me.selectDot @horizontalPageIndex(@currentPage)
+			me._selectDot @horizontalPageIndex(@currentPage)
 		@_pc.content.on "change:children", =>
 			@_layout()
 		@_pc.on "change:size", =>
@@ -75,9 +75,9 @@ class exports.Paginator extends Layer
 					default: @o.dotDefaultProps
 					selected: @o.dotSelectedProps
 				if @o.interactive is true
-					dot.onTap (event) ->
-						@parent._pc.snapToPage @parent._pc.content.children[_.indexOf(@parent.children, @)]
-						@emit "dot:tapped", {layer: @, index: _.indexOf(parent.children, 0)}
+					dot.onTap (event, target) =>
+						@_pc.snapToPage @_pc.content.children[_.indexOf(@children, target)]
+						@emit "dotTapped", target, _.indexOf(@children, target)
 		if @orientation is "h"
 			@width = numDots * (dot.width + @o.dotSpacing) - @o.dotSpacing
 			@height = dot.height
@@ -85,7 +85,7 @@ class exports.Paginator extends Layer
 			@width = dot.width
 			@height = numDots * (dot.height + @o.dotSpacing) - @o.dotSpacing
 
-	selectDot: (dotIndex) ->
+	_selectDot: (dotIndex) ->
 		for child, i in @children
 			if i is dotIndex
 				child.animate "selected",
@@ -110,5 +110,5 @@ class exports.Paginator extends Layer
 
 	_layout: ->
 		@_createDots()
-		@selectDot _.indexOf @_pc.content.children, @_pc.currentPage
+		@_selectDot _.indexOf @_pc.content.children, @_pc.currentPage
 		@_setPosition()
