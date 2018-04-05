@@ -25,6 +25,16 @@ Other `side` options are "top", "left", and "right".
 
 When "top" or "bottom" is the value for `side`, the dots will arrange themselves in a horizontal row, centered horizontally on the page component. When "left" or "right" is the value for `side`, the dots will arrange themselves in a vertical stack, centered vertically on the page component.
 
+## Messages
+
+### paginator.on "dotTapped", ->
+
+```
+paginator.on "dotTapped", (dotLayer, dotIndex) ->
+```
+* **dotLayer**: the layer of the tapped dot
+* **dotIndex**: the zero-based index of the dot tapped
+
 ## Code Examples:
 ```
 # Centers paginator at the top of the page component. The dots are 18 pixels in size
