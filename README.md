@@ -28,7 +28,7 @@ When "top" or "bottom" is the value for `side`, the dots will arrange themselves
 ## Messages
 
 ### paginator.on "dotTapped", ->
-If `interactive` of the paginator is set to true, the `dotTapped' event is fired when a dot is tapped.
+If `interactive` of the paginator is set to true, the `dotTapped` event is fired when a dot is tapped.
 ```
 paginator.on "dotTapped", (dotLayer, dotIndex) ->
 ```
