@@ -1,16 +1,16 @@
 class DefaultDot extends Layer
-	constructor: (@o={}) ->
-		_.defaults @o,
+	constructor: (@options={}) ->
+		_.defaults @options,
 			size: 13
 			borderRadius: "50%"
 			borderColor: "rgba(255,255,255,0.9)"
 			backgroundColor:"rgba(0, 0, 0, 0.05)"
 			borderWidth: 1.1
-		super @o
+		super @options
 
 class exports.Paginator extends Layer
-	constructor: (@o={}) ->
-		_.defaults @o,
+	constructor: (@options={}) ->
+		_.defaults @options,
 			pageComponent: undefined
 			side: "bottom"
 			sideOffset: 10
@@ -21,16 +21,13 @@ class exports.Paginator extends Layer
 			animationOptions: time: 0.3, curve: Bezier.ease
 			backgroundColor: ""
 			interactive: false
-		super @o
+		super @options
 		if not @pageComponent
 			throw new Error "You must supply Paginator with a PageComponent"
 		# for positioning to work properly, Paginator must be on same layer as is PageComponent
 		@parent = @pageComponent.parent
-		if @side is "top" or @side is "bottom"
-			@orientation = "h"
-		else if @side is "left" or @side is "right"
-			@orientation = "v"
-		else throw new Error "What side are you on?"
+		if @side not in ["top", "bottom", "left", "right"]
+			throw new Error "What side are you on?"
 
 		@pageComponent.on "change:currentPage", (currentPage, target) =>
 			@_selectDot target.horizontalPageIndex(currentPage)
@@ -63,7 +60,7 @@ class exports.Paginator extends Layer
 			if i < numDots
 				dot.size = @dotSize
 				dot.parent = @
-				if @orientation is "h"
+				if @side in ["top", "bottom"]
 					dot.x = i * (dot.width + @dotSpacing)
 					dot.y = 0
 				else
@@ -76,7 +73,7 @@ class exports.Paginator extends Layer
 					dot.onTap (event, target) =>
 						@pageComponent.snapToPage @pageComponent.content.children[_.indexOf(@children, target)]
 						@emit "dotTapped", target, _.indexOf(@children, target)
-		if @orientation is "h"
+		if @side in ["top", "bottom"]
 			@width = numDots * (dot.width + @dotSpacing) - @dotSpacing
 			@height = dot.height
 		else
@@ -111,21 +108,37 @@ class exports.Paginator extends Layer
 		@_selectDot _.indexOf @pageComponent.content.children, @pageComponent.currentPage
 		@_setPosition()
 
-	# To do: separate dot layout from dot creation
-	# so we can dynamically set dotSize, dotSpacing, etc.
 	@define "pageComponent",
-		get: -> @o.pageComponent
+		get: -> @options.pageComponent
 	@define "side",
-		get: -> @o.side
+		get: -> @options.side
+		set: (value) ->
+			@options.side = value
+			@_layout()
 	@define "sideOffset",
-		get: -> @o.sideOffset
+		get: -> @options.sideOffset
+		set: (value) ->
+			@options.sideOffset = value
+			@_layout()
 	@define "dotSize",
-		get: -> @o.dotSize
+		get: -> @options.dotSize
+		set: (value) ->
+			@options.dotSize = value
+			@_layout()
 	@define "dotSpacing",
-		get: -> @o.dotSpacing
+		get: -> @options.dotSpacing
+		set: (value) ->
+			@options.dotSpacing = value
+			@_layout()
 	@define "dotDefaultProps",
-		get: -> @o.dotDefaultProps
+		get: -> @options.dotDefaultProps
+		set: (value) ->
+			@options.dotDefaultProps = value
+			@_layout()
 	@define "dotSelectedProps",
-		get: -> @o.dotSelectedProps
+		get: -> @options.dotSelectedProps
+		set: (value) ->
+			@options.dotSelectedProps = value
+			@_layout()
 	@define "interactive",
-		get: -> @o.interactive
+		get: -> @options.interactive
