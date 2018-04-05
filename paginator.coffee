@@ -93,7 +93,7 @@ class exports.Paginator extends Layer
 					@animationOptions
 
 	_setPosition: ->
-		if @oside is "bottom"
+		if @side is "bottom"
 			@x = @pageComponent.x + @pageComponent.width/2 - @.width/2
 			@y = @pageComponent.maxY - @height - @sideOffset
 		else if @side is "top"
