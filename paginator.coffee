@@ -1,12 +1,12 @@
 class DefaultDot extends Layer
-	constructor: (@options={}) ->
-		_.defaults @options,
+	constructor: (options={}) ->
+		_.defaults options,
 			size: 13
 			borderRadius: "50%"
 			borderColor: "rgba(255,255,255,0.9)"
 			backgroundColor:"rgba(0, 0, 0, 0.05)"
 			borderWidth: 1.1
-		super @options
+		super options
 
 class exports.Paginator extends Layer
 	constructor: (@options={}) ->
@@ -22,6 +22,7 @@ class exports.Paginator extends Layer
 			backgroundColor: ""
 			interactive: false
 		super @options
+		@superCalled = true
 		if not @pageComponent
 			throw new Error "You must supply Paginator with a PageComponent"
 		# for positioning to work properly, Paginator must be on same layer as is PageComponent
@@ -114,31 +115,37 @@ class exports.Paginator extends Layer
 		get: -> @options.side
 		set: (value) ->
 			@options.side = value
-			@_layout()
+			if @superCalled
+				@_layout()
 	@define "sideOffset",
 		get: -> @options.sideOffset
 		set: (value) ->
 			@options.sideOffset = value
-			@_layout()
+			if @superCalled
+				@_layout()
 	@define "dotSize",
 		get: -> @options.dotSize
 		set: (value) ->
 			@options.dotSize = value
-			@_layout()
+			if @superCalled
+				@_layout()
 	@define "dotSpacing",
 		get: -> @options.dotSpacing
 		set: (value) ->
 			@options.dotSpacing = value
-			@_layout()
+			if @superCalled
+				@_layout()
 	@define "dotDefaultProps",
 		get: -> @options.dotDefaultProps
 		set: (value) ->
 			@options.dotDefaultProps = value
-			@_layout()
+			if @superCalled
+				@_layout()
 	@define "dotSelectedProps",
 		get: -> @options.dotSelectedProps
 		set: (value) ->
 			@options.dotSelectedProps = value
-			@_layout()
+			if @superCalled
+				@_layout()
 	@define "interactive",
 		get: -> @options.interactive
