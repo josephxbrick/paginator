@@ -37,25 +37,25 @@ class exports.Paginator extends Layer
 		@_pc.on "change:currentPage", ->
 			me.selectDot @horizontalPageIndex(@currentPage)
 		@_pc.content.on "change:children", =>
-			@layout()
+			@_layout()
 		@_pc.on "change:size", =>
-			@setPosition()
+			@_setPosition()
 		@_pc.on "change:point", =>
-			@setPosition()
+			@_setPosition()
 
-		@layout()
+		@_layout()
 
-	createDots: ->
+	_createDots: ->
 		numDots = @_pc.content.children.length
 		for i in [0...Math.max(numDots, @children.length)]
 			if i >= numDots
-				# Too many dots from prevous execution of createDots().
+				# Too many dots from prevous execution of _createDots().
 				# (A page has been removed from the page component.)
 				destroyMe = @children[i]
 				destroyMe.parent = null
 				destroyMe.destroy()
 			if i < @children.length and i < numDots
-				# Reuse existing dot from previous execution createDots()
+				# Reuse existing dot from previous execution _createDots()
 				# due to @_pc event "change:children"
 				dot = @children[i]
 			else if i < numDots
@@ -94,7 +94,7 @@ class exports.Paginator extends Layer
 				child.animate "default",
 					@o.animOptions
 
-	setPosition: ->
+	_setPosition: ->
 		if @o.side is "bottom"
 			@x = @_pc.x + @_pc.width/2 - @.width/2
 			@y = @_pc.maxY - @height - @o.sideOffset
@@ -108,7 +108,7 @@ class exports.Paginator extends Layer
 			@x = @_pc.maxX - @width - @o.sideOffset
 			@y = @_pc.y + @_pc.height/2 - @.height/2
 
-	layout: ->
-		@createDots()
+	_layout: ->
+		@_createDots()
 		@selectDot _.indexOf @_pc.content.children, @_pc.currentPage
-		@setPosition()
+		@_setPosition()
