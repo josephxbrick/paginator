@@ -11,7 +11,14 @@ You can also make the dots interactive. Once interactive, a dot when tapped will
 
 ## Getting Started
 
-To add this module to your Framer project, copy the `paginator.coffee` file to the `/modules` directory of your project and include the following line in your code:
+If you have Modules installed, or want to use Modules to add this module to you project, click the badge below.
+
+<a href='https://open.framermodules.com/Paginator'>
+    <img alt='Install with Framer Modules'
+    src='https://www.framermodules.com/assets/badge@2x.png' width='160' height='40' />
+</a>
+
+Otherwise, to add this module to your Framer project, copy the `paginator.coffee` file to the `/modules` directory of your project and include the following line in your code:
 
 `{Paginator} = require "paginator"`
 
