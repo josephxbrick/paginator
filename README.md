@@ -7,7 +7,7 @@ Paginator has a default style for its display, which is designed to be visible o
 
 You can also make the dots interactive. Once interactive, a dot when tapped will navigate the page component to its corresponding page.
 
-[This sample](https://framer.cloud/cNoet) contains a few examples of using Paginator.
+[This sample](https://framer.cloud/NyAjf) contains a few examples of using Paginator.
 
 ## Getting Started
 
@@ -111,4 +111,4 @@ New Paginator
 ```
   
 ### Framer sample
-[This sample](https://framer.cloud/cNoet) contains a few examples of using Paginator.
+[This sample](https://framer.cloud/NyAjf) contains a few examples of using Paginator.
