@@ -4,5 +4,6 @@
 	"author": "Joseph Brick",
 	"example": "example.coffee",
 	"require": "{Paginator} = require 'paginator'",
-	"install": "paginator.coffee"
+	"install": "paginator.coffee",
+	"thumb": "readme_images/pager.gif"
 }
