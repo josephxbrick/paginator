@@ -1,13 +1,14 @@
 # Paginator
+
 Paginator is a Framer component that adds a pagination control to the specified PageComponent. A pagination control is that set of dots that show you which page you are on - common in app onboarding experiences.
+
+[This sample](https://framer.cloud/VgbEW) contains a few examples of using Paginator.
 
 <img src="/readme_images/paginator_example.gif" width="500">
 
 Paginator has a default style for its display, which is designed to be visible on a wide variety of backgrounds, though you can customize the appearance. Once assigned to a page component, the paginator instance automatically selects the appropriate dot on page navigation, and it handles adding/removing dots when pages are added or removed from the page component.
 
 You can also make the dots interactive. Once interactive, a dot when tapped will navigate the page component to its corresponding page.
-
-[This sample](https://framer.cloud/VgbEW) contains a few examples of using Paginator.
 
 ## Getting Started
 
