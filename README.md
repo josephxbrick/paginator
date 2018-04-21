@@ -4,9 +4,7 @@ Paginator is a Framer component that adds a pagination control to the specified 
 
 [This sample](https://framer.cloud/VgbEW) contains a few examples of using Paginator.
 
-<embed src="https://github.com/josephxbrick/paginator/blob/master/readme_images/paginator.mov">
-
-<img src="/readme_images/paginator_example.gif" width="500">
+<img src="/readme_images/paginator_example.gif" width="300">
 
 Paginator has a default style for its display, which is designed to be visible on a wide variety of backgrounds, though you can customize the appearance. Once assigned to a page component, the paginator instance automatically selects the appropriate dot on page navigation, and it handles adding/removing dots when pages are added or removed from the page component.
 
